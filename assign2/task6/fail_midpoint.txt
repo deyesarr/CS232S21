@@ -1,0 +1,7 @@
+Midpoint Failures
+
+We used the inputs 2147483647 in both x and y spots to induce a failure. This caused midpoint original to fail because that is the max value that function can hold. However, midpoint_a worked properly. 
+
+Next we used the inputs 2 and INT_MAX to cause failure. 
+
+Next we tried -1 and INT_MIN
