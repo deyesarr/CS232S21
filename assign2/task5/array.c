@@ -2,6 +2,7 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 
 /* function prototypes: */
 void printArray(int a[], int size);
@@ -33,5 +34,19 @@ void printArray(int a[], int size) {
  *  a is sorted in ascending order 
  */
 void bubbleSort(int a[], int size) {
-    //TODO: write this function
+    int temp;
+    bool swap;
+
+    do{
+      swap = false;
+      for (int i = 0; i < size; i++){
+        if (a[i] > a[i + 1]){
+          temp = a[i];
+          a[i] = a[i +1];
+          a[i + 1] = temp;
+          swap = true;
+        }
+        printArray(a,size);
+      }
+    } while (swap);
 }
