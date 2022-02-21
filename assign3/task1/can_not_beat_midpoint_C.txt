@@ -1,0 +1,1 @@
+ midpoint_C uses bitwise operands (such as &, and ^) to bypass the unsigned int overflows that midpoint_A and midpoint_B are susceptible to.

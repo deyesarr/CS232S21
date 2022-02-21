@@ -2,31 +2,34 @@
 #include <stdlib.h>
 int * makearray(int size,int base){
 
-  int array[size];
-  int j;
+  int i;
+  int *j;
 
-  for(j=0;j<size;j++)
-    array[j] = base*=2; //doubling base
+    j= calloc(size*2, sizeof(int));
 
-  return array;
+  for(i=0;i<size;i++)
+    j[i] = base*=2; //doubling base
+  return j;
 }
 
 int main(){
-  int * a1 = makearray(5,2);
-  int * a2 = makearray(10,3);
-  int j, sum=0;
+  int * arr1 = makearray(5,2);
+  int * arr2 = makearray(10,3);
+  int j, res=0;
 
   for(j=0;j<5;j++){
-    printf("%d ",a1[j]);
-    sum+=a1[j];
+    printf("%d ",arr1[j]);
+    res+=arr1[j];
   }
   printf("\n");
 
   for(j=0;j<10;j++){
-    printf("%d ",a2[j]);
-    sum+=a2[j];
+    printf("%d ",arr2[j]);
+    res+= arr2[j];
   }
   printf("\n");
-
-  printf("SUM: %d\n", sum);
+  printf("SUM: %d\n", res);
+  free(arr1);
+  free(arr2);
 }
+

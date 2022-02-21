@@ -1,0 +1,2 @@
+Midpoint_B will fail if the midpoint of x and y is negative because it returns the midpoint of the unsigned versions of the values as a result of shifting the sign bit to the right.
+Values to test overflow:-218743, 45
