@@ -18,6 +18,7 @@ char* convert_2(int dec)
       dec <<= 1;
   }
   return con;
+  free (con);
 }
 
 int main() {
