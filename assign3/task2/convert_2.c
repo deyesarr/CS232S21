@@ -6,26 +6,18 @@
 char* convert_2(int dec)
 {
 	//TODO: your implementation
-	char *bin = (char *)malloc(sizeof(char) * 50);
-	bin[0] = '0';
-	bin[1] = '1';
-  int con = abs(dec);
-	for (int i = 2; i < 34; i++)
-	{
-		if (i % 4 == 0)
-		{
-			bin[i] = ' ';
-		}
-		if (con % 2 == 0)
-		{
-			bin[i] = 1;
-		}
-		else
-		{
-			bin[i] = 0;
-		}
-	}
-
+	char* bin = (char* )malloc(50);
+  int bit = 0x80000000;
+  int i=0,j;
+  bin[i++] = '0';
+  bin[i++] = 'b';
+  for(j=0;j<32;j++) {
+      if(j%4 == 0 && j > 0) bin[i++] = ' ';
+      if(dec & bit) bin[i++] = '1';
+      else bin[i++] = '0';
+      dec <<= 1;
+  }
+  return bin;
 }
 
 int main() {
