@@ -6,19 +6,18 @@
 char* convert_2(int dec)
 {
 	//TODO: your implementation
-  char* con = (char* )malloc(50);
+  char* con = (char* )malloc(sizeof(char)*50);
   int first = 0x80000000;
   int i=0,j;
   con[i++] = '0';
   con[i++] = 'b';
-  for(j=0;j<32;j++) {
+  for(j=0;j<33;j++) {
       if(j%4 == 0 && j > 0) con[i++] = ' ';
       if(dec & first) con[i++] = '1';
       else con[i++] = '0';
       dec <<= 1;
   }
-  return con;
-  free (con);
+  return (con);
 }
 
 int main() {
