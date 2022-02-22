@@ -9,9 +9,10 @@ char* convert_2(int dec)
 	char* bin = (char* )malloc(50);
   int bit = 0x80000000;
   int i=0,j;
-  bin[i++] = '0';
-  bin[i++] = 'b';
-  for(j=0;j<32;j++) {
+  bin[0] = '0';
+  bin[1] = 'b';
+  bin[50] = '\0';
+  for(j =0;j<32;j++) {
       if(j%4 == 0 && j > 0){
          bin[i++] = ' ';
         }
@@ -24,7 +25,6 @@ char* convert_2(int dec)
         }
   }
   return bin;
-  free (bin);
 }
 
 int main() {
@@ -35,4 +35,5 @@ int main() {
 	bin = convert_2(n);
 	printf("The Binary Notation of %d is\t %s\n", n, bin);
 	//TODO: do we need to release the memory of bin?
+    free (bin);
 }
