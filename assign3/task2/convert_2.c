@@ -6,30 +6,26 @@
 char* convert_2(int dec)
 {
 	//TODO: your implementation
-char* bin = (char*) malloc(50 * sizeof(char));
-    int i = 49;
-    if(dec & 0x80000000) {
-        dec = -1 * dec;
-        while(i >= 0) {
-            if(i % 5 == 0) {
-                bin[i--] = ' ';
-            }
-            bin[i--] = '0' + !(dec%2);
-            dec = dec / 2;
-        }
-        bin[49] = '1';
-    }
-    else {  
-        while(i >= 0) {
-            if(i % 5 == 0) {
-                bin[i--] = ' ';
-            }
-            bin[i--] = '0' + (dec%2);
-            dec = dec / 2;
-        }
-    }
-    bin[50] = '\0';
-    return bin;
+	char *bin = (char *)malloc(sizeof(char) * 50);
+	bin[0] = '0';
+	bin[1] = '1';
+  int con = abs(dec);
+	for (int i = 2; i < 34; i++)
+	{
+		if (i % 4 == 0)
+		{
+			bin[i] = ' ';
+		}
+		if (con % 2 == 0)
+		{
+			bin[i] = 1;
+		}
+		else
+		{
+			bin[i] = 0;
+		}
+	}
+
 }
 
 int main() {
