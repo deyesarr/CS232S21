@@ -12,12 +12,19 @@ char* convert_2(int dec)
   bin[i++] = '0';
   bin[i++] = 'b';
   for(j=0;j<32;j++) {
-      if(j%4 == 0 && j > 0) bin[i++] = ' ';
-      if(dec & bit) bin[i++] = '1';
-      else bin[i++] = '0';
-      dec <<= 1;
+      if(j%4 == 0 && j > 0){
+         bin[i++] = ' ';
+        }
+      if(dec & bit) {
+        bin[i++] = '1';
+        }
+      else {
+        bin[i++] = '0';
+        dec <<= 1;
+        }
   }
   return bin;
+  free (bin);
 }
 
 int main() {
@@ -28,5 +35,4 @@ int main() {
 	bin = convert_2(n);
 	printf("The Binary Notation of %d is\t %s\n", n, bin);
 	//TODO: do we need to release the memory of bin?
-  free (bin);
 }
