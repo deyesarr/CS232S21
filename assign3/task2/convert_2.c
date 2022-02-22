@@ -32,6 +32,7 @@ char* convert_2(int dec)
             i = (i+1)%5; 
     }
     return con;
+  free(con);
 }
 
 int main() {
@@ -42,5 +43,4 @@ int main() {
 	bin = convert_2(n);
 	printf("The Binary Notation of %d is\t %s\n", n, bin);
 	//TODO: do we need to release the memory of bin?
-    free(bin);
 }
