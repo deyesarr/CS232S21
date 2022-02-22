@@ -6,26 +6,22 @@
 char* convert_2(int dec)
 {
 	//TODO: your implementation
-	char* bin = (char* )malloc(50);
-  int bit = 0x80000000;
+	char* con = (char* )malloc(50);
+  int bit= 0x80000000;
   int i=0,j;
-  bin[0] = '0';
-  bin[1] = 'b';
-  bin[50] = '\0';
-  for(j =0;j<32;j++) {
-      if(j%4 == 0 && j > 0){
-         bin[i++] = ' ';
-        }
-      if(dec & bit) {
-        bin[i++] = '1';
-        }
-      else {
-        bin[i++] = '0';
-        dec <<= 1;
-        }
-  return bin;
-}
+  con[i++] = '0';
+  con[i++] = 'b';
+  //loop 32 times
+  for(j=0;j<32;j++) {
+      //spaces between
+      if(j%4 == 0 && j > 0) con[i++] = ' ';
+      if(dec & bit) con[i++] = '1';
+      else con[i++] = '0';
+      // left bit shift
+      dec <<= 1;
   }
+  return con;
+}
 
 int main() {
 	int n;
@@ -36,5 +32,4 @@ int main() {
 	printf("The Binary Notation of %d is\t %s\n", n, bin);
 	//TODO: do we need to release the memory of bin?
     free (bin);
-
  }
