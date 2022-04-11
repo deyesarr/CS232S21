@@ -7,8 +7,8 @@ gdb : msb
 test : msb
 	./msb 14
 	
-msb : msb.c
-	gcc -O0 -g -Wall -std=c11 -o msb msb.c
+msb : msb.s
+	gcc -O0 -g -Wall -std=c11 -o msb msb.s
 	
 clean :
 	-rm msb msb.s

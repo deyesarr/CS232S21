@@ -30,17 +30,35 @@ int msb(int x) {
 	//                        |
 	//                        ep
 	// in which * is a wild card which could be 0 or 1                   
-	int w, ep;
+	int w, ep, hw;// add hw variable declaration
+  int maskConstruct(int ep, int hw) {
+    int i;
+    int mask = 0;
+    for (i = hw; i < 2 * hw; i++)
+        mask |= (1 << (ep+ i));
+    return mask;
+}// getter for mask variables
 	w=32; // Number of bits that might contain most significant 1
 	ep=0; // Rightmost bit that might contain most significant 1
 	while(w>1) { //Narrow down to a single bit
 		//TODO: Look at half the range of bits
+      hw = w / 2;
 		//TODO: create a mask. 
+      int mask = maskConstruct(hw,ep);
 		// This mask is all one-bits in the left half of the range
 		printf("M= "); print_binary(mask); printf(" hw=%d ep=%d\n",hw,ep);
 		//TODO: use mask to figure out if the left half of the range has at least one bit   
+      if ((x&mask)) 
+      {
+      w /= 2;
+     ep += hw;
+      }
 		//If the left half of the range has a one bit, focus on only the left half
 		//else focus on only the right half
+     else 
+     {
+      w /= 2;
+     }
 		//TODO: You have ruled out either the left half of the range or the right half of the range
 		//set up ep and w accordingly
 	}

@@ -21,10 +21,9 @@ static int get_num_frames(char *path) {
 		//debugging printf, you can use this line to print out ascii file names.
 		n++;
 		}
-
 	}
+  closedir(dir);
 	return n;
-
 }
 
 asciimation_t * asciimation_new(char * path, int fps){
@@ -59,22 +58,31 @@ void asciimation_delete(asciimation_t * ascm){
 	//your code here
 	//reversed steps of asciimation_new
 	// 1. free all the frames, must implement frame_delete first.(why?)
+frame_delete(ascm->frames);
 	// 2. free the vector
+  free(ascm->frames);
 	// 3. free the ascm itself
+  free(ascm);
 }
 
 void asciimation_play(asciimation_t * ascm){
 	//your code here
 	//loop through the vector of frames and print out each frame, ? is to be done by you
-	//for(int i=0; i<?; i++) {
-		//printf(?);
+	for(int i=0; i<?; i++) {
+		printf("%s",frame_get_content(ascm->frames,i);
 		//sleep for frames_per_second * repetition_counter_of_the_frame
+    sleep(ascm->frames_per_second * (frame_get_rep_counter(ascm->frames, i)/15));
 		//clear the screen
+    system("clear");
 	//}
 }
 void asciimation_reverse(asciimation_t * ascm){
 	//Your code here
 	//same logic as above, only difference is loop through the vector backward.
+    for(int i = ascm->frames->size; i > 0; --i) {
+		printf("%s",frame_get_content(ascm->frames, i-1));
+		sleep(ascm->frames_per_second * (frame_get_rep_counter(ascm->frames, i-1)/15));
+    system("clear");
 }
 
 
