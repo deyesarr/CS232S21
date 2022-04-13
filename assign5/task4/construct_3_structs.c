@@ -62,5 +62,5 @@ void dump_all(node_t * head) {
         printf("%s ", selected->str);
 	      selected = selected->next;
     }
-    printf("\nComplete\n ");
+    printf("\ndone\n ");
 }
