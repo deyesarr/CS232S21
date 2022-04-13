@@ -1,0 +1,1 @@
+I think that the stack frame size is 4 bytes because that's the difference in the address for each call of the printSumRangeRecursive function. Example: 0x7ffd2bc7188c- 0x7ffd2bc718cc = 0x40= 4 bytes
