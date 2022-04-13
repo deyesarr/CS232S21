@@ -37,13 +37,13 @@ void teardown(/*what parameter?*/) {
     //TODO: free all dynamic memory you requested.
     //Please complete the prototype of teardown.
     //You are not allowed to use globals
-   node_t *cur = head;
+   node_t *selected = head;
     while (head != NULL)
     {
         // Linked List implementation
-        cur = head->next;
+        selected = head->next;
         free(head);
-        head = cur;
+        head = selected;
     }
 }
 
@@ -56,11 +56,11 @@ int main (int argc, char ** argv) {
 }
 
 void dump_all(node_t * head) {
-    printf("head -> ");
-    node_t * selected = head;
-    while(selected != NULL) {
-        printf("%s ", selected->str);
-	      selected = selected->next;
+  printf("head -> ");
+    node_t * cur = head;
+    while(cur != NULL) {
+        printf("%s ", cur->str);
+	cur = cur->next;
     }
     printf("\ndone\n ");
 }
