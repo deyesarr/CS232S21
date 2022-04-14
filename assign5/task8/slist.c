@@ -24,7 +24,7 @@ struct slist *slist_create();
  * @param str pointer to a C string to store in new list node
  * returns a pointer to the newly added node
  */
-struct snode* slist_add_back(struct slist *l, char *str);{
+struct snode* slist_add_back(struct slist *l, void *str);{
   struct snode *node = malloc(sizeof(struct snode));
     node = snode_create(str); 
     if (NULL == l->front) {
@@ -48,7 +48,7 @@ struct snode* slist_add_back(struct slist *l, char *str);{
  * @param str pointer to a C string to store in new list node
  * returns a pointer to the newly added node
  */
-struct snode* slist_add_front(struct slist *l, char *str);{
+struct snode* slist_add_front(struct slist *l, void *str);{
 struct snode *node = malloc(sizeof(struct snode));
     node = snode_create(str);
     if (NULL == l->front) {
@@ -69,7 +69,7 @@ struct snode *node = malloc(sizeof(struct snode));
  * @parap str pointer to a string
  * @return struct snode* or NULL if no match
  */
-struct snode* slist_find(struct slist *l, char *str);{
+struct snode* slist_find(struct slist *l, void *str);{
 struct snode *itr = l->front;
 	while (itr != NULL)
 	{
@@ -139,7 +139,7 @@ int len;
  * @param l pointer to the list (non-NULL)
  * @parap str pointer to a string
  */
-void slist_delete(struct slist *l, char *str);
+void slist_delete(struct slist *l, void *str);
 {
 struct snode *selected, *before;
    selected = l->front;
